@@ -4,51 +4,50 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    book: {},
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
+
+  onLoad() {
+    if (!app.globalData.books[0]) {
+      wx.showLoading({
+        title: '加载中！',
+      });
     } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
+      this.setData({
+        book: app.globalData.books[0]
       })
     }
+    app.fetchData()
+      .then(this.onData)
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+
+  onData(books) {
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      book: books[0]
+    });
+    wx.hideLoading();
+    wx.stopPullDownRefresh();
+  },
+
+  // 点击封面跳转到详情页
+  bindCoverTap: function() {
+    wx.navigateTo({
+      url: '/pages/detail/detail?index=0'
     })
+  },
+
+  onPullDownRefresh() {
+    app.fetchData()
+      .then(books => {
+        this.onData(books);
+        wx.showToast({
+          title: '刷新成功！',
+        })
+      }).catch(err => {
+        wx.showToast({
+          title: '刷新失败！请重试',
+        })
+        wx.stopPullDownRefresh();
+      })
   }
 })

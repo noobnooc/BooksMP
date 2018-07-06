@@ -8,3 +8,12 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+.tags .tag {
+  color: #FFF;
+  background-color: #333;
+  font-size: 0.6em;
+  padding: 10rpx 15rpx;
+  border-radius: 30rpx;
+  margin-right: 10rpx;
+}

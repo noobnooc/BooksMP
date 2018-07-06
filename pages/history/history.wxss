@@ -1,0 +1,54 @@
+/* pages/history/history.wxss */
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list .item {
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx;
+}
+
+.list .item .cover {
+  width: 150rpx;
+  flex-shrink: 0;
+  margin-right: 10rpx;
+}
+
+.list .item .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.list .item .info .title {
+  color: #000;
+}
+
+.list .item .info .status {
+  color: #FFF;
+  background-color: #333;
+  padding: 5rpx 10rpx;
+  margin-left: 10rpx;
+  font-size: 0.8em;
+}
+
+.list .item .info .author {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.publisher {
+  color: #333;
+  font-size: 0.8em;
+}
+
+.pubdate {
+  color: #888;
+  margin-left: 10rpx;
+  font-size: 0.8em;
+}
+
+.tags {
+  align-items: flex-end;
+}

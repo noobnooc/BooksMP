@@ -1,0 +1,14 @@
+<!--pages/detail/detail.wxml-->
+<scroll-view class='detail' scroll-y='{{true}}'>
+  <view class='info'>
+    <image class='cover' src='{{book.book.images.medium}}'></image>
+  </view>
+  <view class='more-info'>
+  </view>
+  <view class='summary'>
+    <text class='summary-title'>摘要</text>
+    <text class='summary-content'>{{book.book.summary}}</text>
+    <text class='summary-title'>作者简介</text>
+    <text class='summary-content'>{{book.book.author_intro}}</text>
+  </view>
+</scroll-view>
