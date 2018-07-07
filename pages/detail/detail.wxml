@@ -11,6 +11,7 @@
       <text wx:if='{{book.origin_title}}'>源书名：{{book.origin_title}}\n</text>
       <text>作者：{{book.author}}\n</text>
       <text wx:if='{{book.translator && book.translator.length > 0}}'>译者：{{book.translator}}\n</text>
+      <text wx:if='{{book.series.title}}'>丛书：{{book.series.title}}\n</text>
       <text>出版社：{{book.publisher}}\n</text>
       <text>出版日期：{{book.pubdate}}\n</text>
       <text>页数：{{book.pages}}\n</text>
@@ -40,5 +41,8 @@
       <text class='summary-title '>目录</text>
       <text class='summary-content '>{{book.catalog}}</text>
     </block>
+  </view>
+  <view class='footer'>
+    <text class='copyright'>hardo.me@2018\n数据来自豆瓣</text>
   </view>
 </scroll-view>

@@ -1,6 +1,4 @@
 {
-  "window": {
-    "navigationBarTitleText": "历史书单",
-    "enablePullDownRefresh": true
-  }
+  "navigationBarTitleText": "Hardo 的书单",
+  "enablePullDownRefresh": true
 }

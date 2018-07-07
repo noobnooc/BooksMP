@@ -1,5 +1,4 @@
 {
-  "window": {
-    "enablePullDownRefresh": true
-  }
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "Hardo 最近在看的书"
 }

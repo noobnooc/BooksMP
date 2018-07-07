@@ -22,3 +22,16 @@
   margin-top: 10rpx;
   white-space: nowrap;
 }
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 50rpx 50rpx;
+}
+
+.footer .copyright {
+  text-align: center;
+  color: #888;
+  font-size: 0.6em;
+}

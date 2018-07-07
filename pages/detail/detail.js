@@ -21,6 +21,9 @@ Page({
     api.getBook(options.id)
       .then(book => {
         this.setData({ book })
+        wx.setNavigationBarTitle({
+          title: book.title,
+        })
         wx.hideLoading();
       })
   },

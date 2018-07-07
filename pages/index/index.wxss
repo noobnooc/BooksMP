@@ -1,7 +1,7 @@
 /**index.wxss**/
-.container {
+.index .container {
   align-items: center;
-  padding: 100rpx 0;
+  padding: 150rpx 0;
 }
 
 .index .cover {
@@ -48,7 +48,7 @@
 }
 
 .index .tags {
-  margin: 20rpx;
+  margin: 40rpx;
   justify-content: center;
 }
 
@@ -57,9 +57,6 @@
   border-left: 10rpx solid #333;
   margin: 80rpx 40rpx;
   color: #888;
-  padding: 10rpx;
+  padding: 10rpx 20rpx;
 }
 
-.index .comment .comment-content {
-  display: block;
-}
