@@ -3,11 +3,14 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 .tags .tag {
   color: #FFF;
@@ -16,4 +19,6 @@
   padding: 10rpx 15rpx;
   border-radius: 30rpx;
   margin-right: 10rpx;
+  margin-top: 10rpx;
+  white-space: nowrap;
 }

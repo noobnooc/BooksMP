@@ -1,5 +1,22 @@
-<view class="container">
-  <image bindtap='bindCoverTap' src="{{book.book.images.medium}}" mode='widthFix' class="cover"></image>
-  <text class='title'>{{book.book.title}}</text>
-  <text class='author'>{{book.book.author[0]}}</text>
-</view>
+<scroll-view class="container">
+  <view class='container'>
+    <view class='cover'>
+      <image class='image' bindtap='bindCoverTap' src="{{book.book.images.medium}}" mode='widthFix'></image>
+      <view class='rating-back'></view>
+      <text class='rating-text'>{{book.book.rating.average}}</text>
+    </view>
+    <text class='title'>{{book.book.title}}</text>
+    <text class='subtitle' wx:if='{{book.book.subtitle}}'>{{book.book.subtitle}}</text>
+    <text class='author'>{{book.book.author[0]}}</text>
+
+    <view class='tags'>
+      <text class='tag' wx:for="{{book.book.tags}}" wx:key="{{item.name}}">{{item.title}}</text>
+    </view>
+
+    <view class='comment' wx:if='{{ book.comment || book.book.summary || book.book.author_intro}}'>
+      <text class="comment-content" wx:if="{{book.comment}}">{{book.comment}}</text>
+      <text class='comment-content' wx:elif="{{book.book.summary}}">{{book.book.summary}}</text>
+      <text class='comment-content' wx:else="{{book.book.author_intro}}">{{book.book.author_intro}}</text>
+    </view>
+  </view>
+</scroll-view>

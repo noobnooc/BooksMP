@@ -67,10 +67,6 @@
   font-size: 0.8em;
 }
 
-.tags {
-  align-items: flex-end;
-}
-
 .loading-more {
   display: flex;
   flex-direction: row;
