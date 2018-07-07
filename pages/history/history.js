@@ -77,6 +77,7 @@ Page({
         wx.showToast({
           title: '刷新成功！',
         })
+        this.setData({ hasMore: true })
       }).catch(err => {
         wx.showToast({
           title: '刷新失败！请重试',

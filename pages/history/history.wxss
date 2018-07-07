@@ -26,18 +26,18 @@
   margin: 20rpx;
 }
 
-.cover {
+.list .cover {
   position: relative;
   width: 150rpx;
   flex-shrink: 0;
   margin-right: 10rpx;
 }
 
-.cover .cover-image {
+.list .cover .cover-image {
   width: 100%;
 }
 
-.cover .rating-back {
+.list .cover .rating-back {
   position: absolute;
   top: 0;
   left: 0;
@@ -45,7 +45,7 @@
   border-right: 60rpx solid transparent;
 }
 
-.cover .rating-text {
+.list .cover .rating-text {
   position: absolute;
   top: 5rpx;
   left: 5rpx;
@@ -83,6 +83,10 @@
 .pubdate {
   color: #888;
   margin-left: 10rpx;
+  font-size: 0.8em;
+}
+
+.tags {
   font-size: 0.8em;
 }
 

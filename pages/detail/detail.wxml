@@ -1,14 +1,44 @@
 <!--pages/detail/detail.wxml-->
 <scroll-view class='detail' scroll-y='{{true}}'>
   <view class='info'>
-    <image class='cover' src='{{book.images.medium}}'></image>
-  </view>
-  <view class='more-info'>
+    <view class='cover'>
+      <image class="cover-image" src='{{book.images.small}}' mode="widthFix"></image>
+      <view class='rating-back'></view>
+      <text class='rating-text'>{{book.rating.average}}</text>
+    </view>
+    <view class='aside'>
+      <text>书名：{{book.title}}\n</text>
+      <text wx:if='{{book.origin_title}}'>源书名：{{book.origin_title}}\n</text>
+      <text>作者：{{book.author}}\n</text>
+      <text wx:if='{{book.translator && book.translator.length > 0}}'>译者：{{book.translator}}\n</text>
+      <text>出版社：{{book.publisher}}\n</text>
+      <text>出版日期：{{book.pubdate}}\n</text>
+      <text>页数：{{book.pages}}\n</text>
+      <text>装帧：{{book.binding}}\n</text>
+      <text>定价：{{book.price}}\n</text>
+      <text>ISBN：{{book.isbn13}}\n</text>
+    </view>
   </view>
   <view class='summary'>
-    <text class='summary-title'>摘要</text>
-    <text class='summary-content'>{{book.summary}}</text>
-    <text class='summary-title'>作者简介</text>
-    <text class='summary-content'>{{book.author_intro}}</text>
+    <block wx:if="{{book.tags && book.tags.length > 0}}">
+      <text class='summary-title'>标签</text>
+      <view class='summary-content'>
+        <view class='tags'>
+          <text class='tag' wx:for="{{book.tags}}" wx:key="{{item.name}}">{{item.title}}</text>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{book.summary}}">
+      <text class='summary-title '>摘要</text>
+      <text class='summary-content '>{{book.summary}}</text>
+    </block>
+    <block wx:if='{{book.author_intro}}'>
+      <text class='summary-title '>作者简介</text>
+      <text class='summary-content '>{{book.author_intro}}</text>
+    </block>
+    <block wx:if='{{book.catalog}}'>
+      <text class='summary-title '>目录</text>
+      <text class='summary-content '>{{book.catalog}}</text>
+    </block>
   </view>
 </scroll-view>

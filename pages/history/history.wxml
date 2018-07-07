@@ -12,7 +12,7 @@
           <text class="title">{{item.book.title}}</text>
           <text class='status' wx:if="{{item.status === 'wish'}}">想读</text>
           <text class='status' wx:if="{{item.status === 'reading'}}">在读</text>
-          <text class='status' wx:if="{{item.status === 'read'}}">已读</text>
+          <text class='status' wx:if="{{item.status === 'read'}}">读过</text>
         </view>
         <text class="author">{{item.book.author}}</text>
         <view>

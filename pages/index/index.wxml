@@ -1,4 +1,4 @@
-<scroll-view class="container">
+<scroll-view class="container index">
   <view class='container'>
     <view class='cover'>
       <image class='image' bindtap='bindCoverTap' src="{{book.book.images.medium}}" mode='widthFix'></image>

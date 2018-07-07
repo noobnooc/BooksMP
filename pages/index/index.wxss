@@ -4,23 +4,23 @@
   padding: 100rpx 0;
 }
 
-.cover {
+.index .cover {
   width: 300rpx;
   position: relative;
 }
 
-.cover .image {
+.index .cover .image {
   width: 100%;
 }
 
-.cover .rating-back {
+.index .cover .rating-back {
   position: absolute;
   top: 0;
   right: 0;
   border-top: 80rpx solid #2E963D;
   border-left: 80rpx solid transparent;
 }
-.cover .rating-text {
+.index .cover .rating-text {
   position: absolute;
   top: 5rpx;
   right: 10rpx;
@@ -29,30 +29,30 @@
   color: #FFF;
 }
 
-.title {
+.index .title {
   color: #000;
   font-weight: blod;
-  margin-top: 20rpx;
+  margin-top: 10rpx;
 }
 
-.subtitle {
+.index .subtitle {
   margin-top: -5rpx;
   color: #666;
   font-size: 0.9em;
 }
 
-.author {
+.index .author {
   margin-top: 10rpx;
   color: #666;
   font-size: 0.8em;
 }
 
-.tags {
+.index .tags {
   margin: 20rpx;
   justify-content: center;
 }
 
-.comment {
+.index .comment {
   flex: 0 0 auto;
   border-left: 10rpx solid #333;
   margin: 80rpx 40rpx;
@@ -60,6 +60,6 @@
   padding: 10rpx;
 }
 
-.comment .comment-content {
+.index .comment .comment-content {
   display: block;
 }

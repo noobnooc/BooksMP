@@ -1,18 +1,56 @@
 /* pages/detail/detail.wxss */
-
-.summary {
+.detail .info {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  margin: 20rpx;
+}
+.detail .cover {
+  position: relative;
+  align-self: center;
+  flex: 0 0 auto;
 }
 
-.summary-title {
+.detail .cover .cover-image {
+  width: 250rpx;
+}
+
+.detail .cover .rating-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 80rpx solid #2E963D;
+  border-right: 80rpx solid transparent;
+}
+
+.detail .cover .rating-text {
+  position: absolute;
+  top: 5rpx;
+  left: 5rpx;
+  color: #FFF;
+  font-size: 30rpx;
+  font-style: italic;
+}
+
+.detail .info .aside {
+  margin-left: 20rpx;
+  font-size: 0.9em;
+}
+.detail .summary {
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx;
+}
+
+.detail .summary-title {
   color: #000;
   font-weight: bold;
+  border-left: 10rpx solid #333;
+  padding-left: 10rpx;
   margin-top: 20rpx;
   margin-bottom: 10rpx;
 }
 
-.summary-content {
+.detail .summary-content {
   color: #111;
   font-size: 0.9em;
 }
