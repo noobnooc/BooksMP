@@ -1,12 +1,13 @@
-const baseUrl = 'https://douban.uieee.com/v2';
-const userBooksUrl = '/book/user/bigstud/collections'
+const cfg = require('../config.js');
+const userBooksUrl = `/book/user/${cfg.name}/collections`
 const bookUrl = '/book'
+
 module.exports = {
   // 通过起始值和数量获取该用户的图书
   getBooks(start = 0, count = 10) {
     return new Promise((resolve, reject) => {
       wx.request({
-        url: `${baseUrl + userBooksUrl}?start=${start}&${count}`,
+        url: `${cfg.baseUrl + userBooksUrl}?start=${start}&${count}`,
         header: {
           "Content-Type": "json"
         },
@@ -24,7 +25,7 @@ module.exports = {
   getBook(id) {
     return new Promise((resolve, reject) => {
       wx.request({
-        url: `${baseUrl + bookUrl}/${id}`,
+        url: `${cfg.baseUrl + bookUrl}/${id}`,
         header: {
           "Content-Type": "json"
         },

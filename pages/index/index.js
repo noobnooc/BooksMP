@@ -23,7 +23,7 @@ Page({
 
   onData(books) {
     this.setData({
-      book: books[4]
+      book: books[0]
     });
     wx.hideLoading();
     wx.stopPullDownRefresh();
