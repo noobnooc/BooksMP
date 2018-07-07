@@ -7,17 +7,16 @@
 .list .item {
   margin: 20rpx;
   padding-top: 10rpx;
+  border-right: 10rpx solid #333;
 }
 
 .list .item .book {
   display: flex;
-  border-right: 10rpx solid #333;
   flex-direction: row;
 }
 
 .list .item .comment {
   border-left: 10rpx solid #333;
-  margin-top: 10rpx;
   font-size: 0.8em;
   color: #888;
 }
@@ -27,13 +26,33 @@
   margin: 20rpx;
 }
 
-.list .item .cover {
+.cover {
+  position: relative;
   width: 150rpx;
-  height: 200rpx;
   flex-shrink: 0;
   margin-right: 10rpx;
 }
 
+.cover .cover-image {
+  width: 100%;
+}
+
+.cover .rating-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 60rpx solid #2E963D;
+  border-right: 60rpx solid transparent;
+}
+
+.cover .rating-text {
+  position: absolute;
+  top: 5rpx;
+  left: 5rpx;
+  font-size: 20rpx;
+  font-style: italic;
+  color: #FFF;
+}
 .list .item .info {
   display: flex;
   flex-direction: column;

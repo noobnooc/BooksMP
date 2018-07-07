@@ -2,7 +2,11 @@
 <scroll-view class="list" scroll-y="{{true}}">
   <navigator open-type='navigate' url='/pages/detail/detail?id={{item.book_id}}' class="item" wx:for="{{books}}" wx:key="{{item.id}}">
     <view class='book'>
-      <image class="cover" src='{{item.book.images.small}}' mode="widthFix"></image>
+      <view class='cover'>
+        <image class="cover-image" src='{{item.book.images.small}}' mode="widthFix"></image>
+        <view class='rating-back'></view>
+        <text class='rating-text'>{{item.book.rating.average}}</text>
+      </view>
       <view class="info">
         <view>
           <text class="title">{{item.book.title}}</text>
@@ -24,5 +28,7 @@
       <text class='comment-content'>{{item.comment}}</text>
     </view>
   </navigator>
-  <view class='loading-more' wx:if="{{hasMore}}"><text>正在加载更多...</text></view>
+  <view class='loading-more' wx:if="{{hasMore}}">
+    <text>正在加载更多...</text>
+  </view>
 </scroll-view>
