@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    books: []
+    books: [],
+    hasMore: true,
   },
 
   /**
@@ -88,6 +89,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+    if (!this.data.hasMore) {
+      return;
+    }
     wx.showNavigationBarLoading();
     api.getBooks(this.data.books.length, 20)
       .then(books => {
@@ -99,10 +103,12 @@ Page({
         this.setData({
           books: obooks
         })
+        console.log(books.length);
+        if (!books || books.length < 20) {
+          this.setData({ hasMore: false });
+        }
         wx.hideNavigationBarLoading();
-        wx.showToast({
-          title: '已加载更多',
-        })
+        
       }).catch(err => wx.hideNavigationBarLoading());
   },
 

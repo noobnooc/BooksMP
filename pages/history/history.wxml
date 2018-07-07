@@ -1,22 +1,28 @@
 <!--pages/history/history.wxml-->
 <scroll-view class="list" scroll-y="{{true}}">
   <navigator open-type='navigate' url='/pages/detail/detail?id={{item.book_id}}' class="item" wx:for="{{books}}" wx:key="{{item.id}}">
-    <image class="cover" src='{{item.book.images.small}}' mode="widthFix"></image>
-    <view class="info">
-      <view>
-        <text class="title">{{item.book.title}}</text>
-        <text class='status' wx:if="{{item.status === 'wish'}}">想读</text>
-        <text class='status' wx:if="{{item.status === 'reading'}}">在读</text>
-        <text class='status' wx:if="{{item.status === 'read'}}">已读</text>
-      </view>
-      <text class="author">{{item.book.author}}</text>
-      <view>
-        <text class='publisher'>{{item.book.publisher}}</text>
-        <text class='pubdate'>{{item.book.pubdate}}</text>
-      </view>
-      <view class='tags'>
-        <text class='tag' wx:for="{{item.book.tags}}" wx:key="item.name">{{item.title}}</text>
+    <view class='book'>
+      <image class="cover" src='{{item.book.images.small}}' mode="widthFix"></image>
+      <view class="info">
+        <view>
+          <text class="title">{{item.book.title}}</text>
+          <text class='status' wx:if="{{item.status === 'wish'}}">想读</text>
+          <text class='status' wx:if="{{item.status === 'reading'}}">在读</text>
+          <text class='status' wx:if="{{item.status === 'read'}}">已读</text>
+        </view>
+        <text class="author">{{item.book.author}}</text>
+        <view>
+          <text class='publisher'>{{item.book.publisher}}</text>
+          <text class='pubdate'>{{item.book.pubdate}}</text>
+        </view>
+        <view class='tags'>
+          <text class='tag' wx:for="{{item.book.tags}}" wx:key="item.name">{{item.title}}</text>
+        </view>
       </view>
     </view>
+    <view class='comment' wx:if="item.comment">
+      <text class='comment-content'>{{item.comment}}</text>
+    </view>
   </navigator>
+  <view class='loading-more' wx:if="{{hasMore}}"><text>正在加载更多...</text></view>
 </scroll-view>
