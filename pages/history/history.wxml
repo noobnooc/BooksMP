@@ -1,6 +1,6 @@
 <!--pages/history/history.wxml-->
 <scroll-view class="list" scroll-y="{{true}}">
-  <navigator open-type='navigate' url='/pages/detail/detail?index={{index}}' class="item" wx:for="{{books}}" wx:key="{{item.id}}">
+  <navigator open-type='navigate' url='/pages/detail/detail?id={{item.book_id}}' class="item" wx:for="{{books}}" wx:key="{{item.id}}">
     <image class="cover" src='{{item.book.images.small}}' mode="widthFix"></image>
     <view class="info">
       <view>

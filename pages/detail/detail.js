@@ -1,3 +1,4 @@
+const api = require('../../utils/api.js');
 const app = getApp();
 
 // pages/detail/detail.js
@@ -14,8 +15,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const index = options.index;
-    this.setData({ book: app.globalData.books[index] });
+    wx.showLoading({
+      title: '加载中',
+    });
+    api.getBook(options.id)
+      .then(book => {
+        this.setData({ book })
+        wx.hideLoading();
+      })
   },
 
   /**

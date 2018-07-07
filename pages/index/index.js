@@ -32,7 +32,7 @@ Page({
   // 点击封面跳转到详情页
   bindCoverTap: function() {
     wx.navigateTo({
-      url: '/pages/detail/detail?index=0'
+      url: `/pages/detail/detail?id=${this.data.book.book_id}`
     })
   },
 
