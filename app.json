@@ -13,20 +13,20 @@
     "enablePullDownRefresh": true
   },
   "tabBar": {
-    "color": "#888",
+    "color": "#666",
     "selectedColor": "#000",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "res/img/home.png",
-        "selectedIconPath": "res/img/home_selected.png",
-        "text": "首页" 
+        "iconPath": "res/img/book.png",
+        "selectedIconPath": "res/img/book_selected.png",
+        "text": "最近" 
       },
       {
         "pagePath": "pages/history/history",
-        "iconPath": "res/img/history.png",
-        "selectedIconPath": "res/img/history_selected.png",
-        "text": "历史"
+        "iconPath": "res/img/books.png",
+        "selectedIconPath": "res/img/books_selected.png",
+        "text": "所有"
       }
     ]
   }
