@@ -1,34 +1,51 @@
 <!--pages/history/history.wxml-->
-<import src='/templates/tags.wxml'/>
+<import src='/templates/tags.wxml' />
 <scroll-view class="list" scroll-y="{{true}}">
-  <navigator open-type='navigate' url='/pages/detail/detail?id={{item.book_id}}' class="item" wx:for="{{books}}" wx:key="{{item.id}}">
-    <view class='book'>
-      <view class='cover'>
-        <image class="cover-image" src='{{item.book.images.small}}' mode="widthFix"></image>
-        <view class='rating-back'></view>
-        <text class='rating-text'>{{item.book.rating.average}}</text>
-      </view>
-      <view class="info">
-        <view>
-          <text class="title">{{item.book.title}}</text>
-          <text class='status' wx:if="{{item.status === 'wish'}}">想读</text>
-          <text class='status' wx:if="{{item.status === 'reading'}}">在读</text>
-          <text class='status' wx:if="{{item.status === 'read'}}">读过</text>
-        </view>
-        <text class="author">{{item.book.author}}</text>
-        <view>
-          <text class='publisher'>{{item.book.publisher}}</text>
-          <text class='pubdate'>{{item.book.pubdate}}</text>
-        </view>
-        <template is='tags' data='{{tags: item.book.tags, userTags: item.tags}}'/>
-      </view>
+  <view wx:for="{{books}}" wx:key="{{item.id}}">
+    <view class='date' wx:if='{{m.shouldShowDate(index, timeline)}}'>
+      <text>{{m.caseDate(item.updated)}}</text>
     </view>
-    <view class='comment' wx:if="{{item.comment || item.rating.value}}">
-      <text class='comment-content'>{{item.comment}}</text>
-      <text class='comment-content comment-star star-{{item.rating.value}}' wx:if='{{item.rating.value}}'>推荐指数：</text>
-    </view>
-  </navigator>
+    <navigator open-type='navigate' url='/pages/detail/detail?id={{item.book_id}}' class='item'>
+      <view class='book'>
+        <view class='cover'>
+          <image class="cover-image" src='{{item.book.images.small}}' mode="widthFix"></image>
+          <view class='rating-back'></view>
+          <text class='rating-text'>{{item.book.rating.average}}</text>
+        </view>
+        <view class="info">
+          <view>
+            <text class="title">{{item.book.title}}</text>
+            <text class='status' wx:if="{{item.status === 'wish'}}">想读</text>
+            <text class='status' wx:if="{{item.status === 'reading'}}">在读</text>
+            <text class='status' wx:if="{{item.status === 'read'}}">读过</text>
+          </view>
+          <text class="author">{{item.book.author}}</text>
+          <view>
+            <text class='publisher'>{{item.book.publisher}}</text>
+            <text class='pubdate'>{{item.book.pubdate}}</text>
+          </view>
+          <template is='tags' data='{{tags: item.book.tags, userTags: item.tags}}' />
+        </view>
+      </view>
+      <view class='comment' wx:if="{{item.comment || item.rating.value}}">
+        <text class='comment-content'>{{item.comment}}</text>
+        <text class='comment-content comment-star star-{{item.rating.value}}' wx:if='{{item.rating.value}}'>推荐指数：</text>
+      </view>
+    </navigator>
+  </view>
   <view class='loading-more' wx:if="{{hasMore}}">
     <text>正在加载更多...</text>
   </view>
 </scroll-view>
+
+<wxs module='m'>
+  module.exports.shouldShowDate = function(index, timeline) {
+    return timeline.indexOf(index) > -1;
+  }
+
+  module.exports.caseDate = function(date) {
+    var dateStr = date.split(' ')[0];
+    var dateArr = dateStr.split('-');
+    return dateArr[0] + '年' + dateArr[1] + '月' + dateArr[2] + '日';
+  }
+</wxs>

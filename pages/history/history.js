@@ -4,15 +4,24 @@ const app = getApp();
 // pages/history/history.js
 Page({
 
+  loading: false,
+  lastIndex: 0,
+  lastDate: Date.now(),
+
+  refreshData() {
+    this.lastIndex = 0;
+    this.lastDate = Date.now();
+    this.setData({ timeline: [] });
+  },
+
   /**
    * 页面的初始数据
    */
   data: {
     books: [],
     hasMore: true,
+    timeline: [],
   },
-
-  loading: false,
 
   /**
    * 生命周期函数--监听页面加载
@@ -32,6 +41,12 @@ Page({
   onData(books) {
     books = app.globalData.books.map((book) => {
       book.book.tags = book.book.tags.slice(0, 4);
+      if (this.shouldShowDate(book.updated)) {
+        let timeline = this.data.timeline;
+        timeline.push(this.lastIndex);
+        this.setData({ timeline });
+      }
+      this.lastIndex++;
       return book;
     })
     this.setData({
@@ -39,6 +54,16 @@ Page({
     });
     wx.hideLoading();
     wx.stopPullDownRefresh();
+  },
+
+  shouldShowDate(date) {
+    var dateStr = date.trim().split(' ')[0];
+    var newDate = Date.parse(dateStr);
+    if (newDate < this.lastDate) {
+      this.lastDate = newDate;
+      return true;
+    }
+    return false;
   },
 
   /**
@@ -75,6 +100,7 @@ Page({
   onPullDownRefresh: function() {
     app.fetchData()
       .then(books => {
+        this.refreshData();
         this.onData(books);
         wx.showToast({
           title: '刷新成功！',
@@ -107,7 +133,6 @@ Page({
         this.setData({
           books: obooks
         })
-        console.log(books.length);
         if (!books || books.length < 20) {
           this.setData({ hasMore: false });
         }

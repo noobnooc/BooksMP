@@ -4,6 +4,13 @@
   flex-direction: column;
 }
 
+.list .date {
+  margin: 20rpx;
+  text-align: right;
+  color: #666;
+  font-size: 0.8em;
+  font-style: italic;
+}
 .list .item {
   margin: 20rpx;
   padding-top: 10rpx;
@@ -13,6 +20,7 @@
 .list .item .book {
   display: flex;
   flex-direction: row;
+  flex-shrink: 0;
 }
 
 .list .item .comment {
