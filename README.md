@@ -3,12 +3,12 @@
 
 ## 效果浏览
 
-<img src="examples/code.jpg" style="max-width: 400px">
+<img src="examples/code.jpg" width="400">
 
 ## 界面截图
 
 界面 | 界面截图 
 :----:|:--------:
-主界面 | <img src="examples/home.jpg" style="max-width: 400px;"> 
-历史界面 | <img src="examples/history.jpg" style="max-width: 400px;">
-详情界面 | <img src="examples/detail.jpg" style="max-width: 400px;"> 
+主界面 | <img src="examples/home.jpg" width="400"> 
+历史界面 | <img src="examples/history.jpg" width="400">
+详情界面 | <img src="examples/detail.jpg" width="400"> 
