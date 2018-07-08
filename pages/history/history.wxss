@@ -28,7 +28,9 @@
 
 .list .cover {
   position: relative;
+  align-self: center;
   width: 150rpx;
+  max-height: 250rpx;
   flex-shrink: 0;
   margin-right: 10rpx;
 }

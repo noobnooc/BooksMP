@@ -1,0 +1,5 @@
+<template name='tags'>
+  <view class='tags'>
+    <text class='tag' wx:for="{{tags}}" wx:key="{{item.name}}">{{item.title}}</text>
+  </view>
+</template>

@@ -1,4 +1,5 @@
 <!--pages/detail/detail.wxml-->
+<import src='/templates/tags.wxml'/>
 <scroll-view class='detail' scroll-y='{{true}}'>
   <view class='info'>
     <view class='cover'>
@@ -24,9 +25,7 @@
     <block wx:if="{{book.tags && book.tags.length > 0}}">
       <text class='summary-title'>标签</text>
       <view class='summary-content'>
-        <view class='tags'>
-          <text class='tag' wx:for="{{book.tags}}" wx:key="{{item.name}}">{{item.title}}</text>
-        </view>
+        <template is='tags' data='{{tags: book.tags}}'/>
       </view>
     </block>
     <block wx:if="{{book.summary}}">
@@ -42,7 +41,5 @@
       <text class='summary-content '>{{book.catalog}}</text>
     </block>
   </view>
-  <view class='footer'>
-    <text class='copyright'>hardo.me@2018\n数据来自豆瓣</text>
-  </view>
+  <include src='/templates/footer.wxml'/>
 </scroll-view>

@@ -12,6 +12,8 @@ Page({
     hasMore: true,
   },
 
+  loading: false,
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -90,10 +92,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-    if (!this.data.hasMore) {
+    if (!this.data.hasMore || this.loading) {
       return;
     }
     wx.showNavigationBarLoading();
+    this.loading = true;
     api.getBooks(this.data.books.length, 20)
       .then(books => {
         let obooks = this.data.books;
@@ -109,7 +112,7 @@ Page({
           this.setData({ hasMore: false });
         }
         wx.hideNavigationBarLoading();
-        
+        this.loading = false;
       }).catch(err => wx.hideNavigationBarLoading());
   },
 

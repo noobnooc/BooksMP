@@ -1,3 +1,5 @@
+<import src='/templates/tags.wxml'/>
+
 <scroll-view class="index">
   <view class='container'>
     <view class='cover'>
@@ -13,9 +15,7 @@
     </view>
     <text class='author'>{{book.book.author[0]}}</text>
 
-    <view class='tags'>
-      <text class='tag' wx:for="{{book.book.tags}}" wx:key="{{item.name}}">{{item.title}}</text>
-    </view>
+    <template is='tags' data='{{tags: book.book.tags}}'/>
 
     <view class='comment' wx:if='{{ book.comment || book.book.summary || book.book.author_intro}}'>
       <text class="comment-content" wx:if="{{book.comment}}">{{book.comment}}</text>
@@ -23,7 +23,5 @@
       <text class='comment-content' wx:else="{{book.book.author_intro}}">{{book.book.author_intro}}</text>
     </view>
   </view>
-  <view class='footer'>
-    <text class='copyright'>hardo.me@2018\n数据来自豆瓣</text>
-  </view>
+  <include src='/templates/footer.wxml'/>
 </scroll-view>

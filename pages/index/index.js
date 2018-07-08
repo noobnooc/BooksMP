@@ -26,7 +26,6 @@ Page({
       book: books[0]
     });
     let topbar = 'Hardo 最近在看的书'
-    console.log(this.data.book.status);
     if (this.data.book.status === 'read') {
       topbar = 'Hardo 最近看过的书'
     } else if (this.data.book.status === 'wish') {

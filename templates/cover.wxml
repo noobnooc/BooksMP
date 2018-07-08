@@ -1,0 +1,13 @@
+<!--
+url: string,
+rating: string,
+align: string(left|right),
+ratingSize: string(small|medium|large),
+-->
+<template name='cover'>
+  <view class="cover rating-{{ratingSize || 'small'}} rating-{{align || 'left'}}">
+    <image class='image' src="{{url}}" mode='widthFix'></image>
+    <view class='rating-back'></view>
+    <text class='rating-text'>{{rating}}</text>
+  </view>
+</template>
