@@ -20,11 +20,12 @@
           <text class='publisher'>{{item.book.publisher}}</text>
           <text class='pubdate'>{{item.book.pubdate}}</text>
         </view>
-        <template is='tags' data='{{tags: item.book.tags}}'/>
+        <template is='tags' data='{{tags: item.book.tags, userTags: item.tags}}'/>
       </view>
     </view>
-    <view class='comment' wx:if="item.comment">
+    <view class='comment' wx:if="{{item.comment || item.rating.value}}">
       <text class='comment-content'>{{item.comment}}</text>
+      <text class='comment-content comment-star star-{{item.rating.value}}' wx:if='{{item.rating.value}}'>推荐指数：</text>
     </view>
   </navigator>
   <view class='loading-more' wx:if="{{hasMore}}">

@@ -15,12 +15,13 @@
     </view>
     <text class='author'>{{book.book.author[0]}}</text>
 
-    <template is='tags' data='{{tags: book.book.tags}}'/>
+    <template is='tags' data='{{tags: book.book.tags, userTags: book.tags}}'/>
 
     <view class='comment' wx:if='{{ book.comment || book.book.summary || book.book.author_intro}}'>
-      <text class="comment-content" wx:if="{{book.comment}}">{{book.comment}}</text>
-      <text class='comment-content' wx:elif="{{book.book.summary}}">{{book.book.summary}}</text>
-      <text class='comment-content' wx:else="{{book.book.author_intro}}">{{book.book.author_intro}}</text>
+      <text class="comment-content" wx:if="{{book.comment}}">{{book.comment}}\n</text>
+      <text class='comment-content' wx:elif="{{book.book.summary}}">{{book.book.summary}}\n</text>
+      <text class='comment-content' wx:else="{{book.book.author_intro}}">{{book.book.author_intro}}\n</text>
+      <text class='comment-content star star-{{book.rating.value || 0}}' wx:if="{{book.rating && book.rating.value}}">推荐指数：</text>
     </view>
   </view>
   <include src='/templates/footer.wxml'/>

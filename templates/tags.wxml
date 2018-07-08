@@ -1,5 +1,11 @@
 <template name='tags'>
   <view class='tags'>
-    <text class='tag' wx:for="{{tags}}" wx:key="{{item.name}}">{{item.title}}</text>
+    <text class="tag {{m.getClass(item.title, userTags)}}" wx:for="{{tags}}" wx:key="{{item.name}}">{{item.title}}</text>
   </view>
 </template>
+
+<wxs module='m'>
+  module.exports.getClass = function(tag, tags) {
+    return tags && tags.indexOf(tag) > -1 ? 'tag-u' : '';
+  }
+</wxs>

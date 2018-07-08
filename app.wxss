@@ -6,6 +6,27 @@
   box-sizing: border-box;
 } 
 
+.star-1::after {
+  color: #666;
+  content: "★";
+}
+.star-2::after {
+  color: #666;
+  content: "★★";
+}
+.star-3::after {
+  color: #666;
+  content: "★★★";
+}
+.star-4::after {
+  color: #666;
+  content: "★★★★";
+}
+.star-5::after {
+  color: #666;
+  content: "★★★★★";
+}
+
 .tags {
   display: flex;
   flex-direction: row;
@@ -23,6 +44,10 @@
   white-space: nowrap;
 }
 
+.tags .tag-u::before {
+  content: "⚑";
+  margin: 0 5rpx;
+}
 .footer {
   display: flex;
   flex-direction: row;

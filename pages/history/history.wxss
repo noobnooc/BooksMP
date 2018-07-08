@@ -18,7 +18,7 @@
 .list .item .comment {
   border-left: 10rpx solid #333;
   font-size: 0.8em;
-  color: #888;
+  color: #666;
 }
 
 .list .item .comment .comment-content {

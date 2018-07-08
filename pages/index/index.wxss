@@ -56,7 +56,14 @@
   flex: 0 0 auto;
   border-left: 10rpx solid #333;
   margin: 80rpx 40rpx;
-  color: #888;
+  color: #666;
   padding: 10rpx 20rpx;
+}
+
+.index .comment .star {
+  display: block;
+  margin-top: 30rpx;
+  font-size: 0.8em;
+  color: #888;
 }
 
