@@ -16,10 +16,10 @@ Page({
     } else {
       this.onRefresh();
     }
-    let init = wx.getStorageSync('initialized') || false;
+    let init = wx.getStorageSync('init') || false;
     if (!init) {
       wx.redirectTo({
-        url: '/pages/settings/settings'
+        url: '/pages/init/init'
       })
     }
   },

@@ -5,7 +5,8 @@
     "pages/history/history",
     "pages/user/user",
     "pages/settings/settings",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/init/init"
   ],
   "window": {
     "backgroundTextStyle": "dark",

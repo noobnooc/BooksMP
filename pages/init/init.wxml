@@ -1,0 +1,7 @@
+<!--pages/init/init.wxml-->
+<view class='init container'>
+  <text class='title'>输入豆瓣用户名开始使用</text>
+  <input class='username-input form-item' bindinput='onInputUsername' placeholder='在这里输入用户名' focus='{{true}}'/>
+  <view class='username-submit form-item' bindtap='startUse'>开始使用</view>
+  <view class='username-usedefault' bindtap='useDefault'><text>跳过此步骤(使用hardo)</text></view>
+</view>

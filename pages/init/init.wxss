@@ -1,0 +1,40 @@
+/* pages/init/init.wxss */
+.container.init {
+  display: flex;
+  height: 100vh;
+  margin: 0 100rpx;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.init .title {
+  padding: 10rpx 20rpx;
+  border-left: 10rpx solid #333;
+  margin-bottom: 100rpx;
+}
+
+.init .form-item {
+  width: 400rpx;
+  height: 50rpx;
+  align-self: center;
+  text-align: center;
+  border: 5rpx solid #333;
+  margin: 20rpx;
+  padding: 5rpx 10rpx;
+}
+.init .username-input {
+  border: 5rpx solid #333;
+  padding: 5rpx 10rpx;
+}
+.init .username-submit {
+  color: #FFF;
+  background-color: #333;
+}
+.init .username-usedefault {
+  color: #666;
+  margin-top: 100rpx;
+  padding-right: 10rpx;
+  border-right: 5rpx solid #666;
+  align-self: flex-end;
+  font-size: 0.8em;
+}
