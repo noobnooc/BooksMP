@@ -72,7 +72,7 @@ Page({
   },
 
   startUse() {
-    if (!/^(\w)+/.test(this.username)) {
+    if (!/^(\w)+$/.test(this.username)) {
       wx.showToast({
         title: '用户名格式错误',
       })
@@ -97,8 +97,11 @@ Page({
         })
       })
       .catch(err => {
+        wx.hideLoading();
+        console.log(err.message);
         wx.showToast({
-          title: err,
+          title: err.message,
+          icon: 'none',
         })
       })
   }
