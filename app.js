@@ -70,9 +70,9 @@ App({
           this.fetchData();
           resolve();
         })
-        .catch(() => {
+        .catch((err) => {
           api.setUsername(prename);
-          reject();
+          reject(err);
         });
     });
   }
