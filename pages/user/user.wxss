@@ -1,1 +1,66 @@
 /* pages/user/user.wxss */
+
+.user {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.user .userinfo {
+  display: flex;
+  flex-grow: 0;
+  margin-top: 100rpx;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user .options {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+.user .avatar {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  margin-bottom: 30rpx;
+}
+
+.user .username {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user .username .name {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.user .username .uid {
+  font-size: 0.6em;
+  margin-top: -5rpx;
+  color: #888;
+}
+
+.user .signature {
+  margin-top: 20rpx;
+  color: #333;
+} 
+
+.user .desc {
+  margin: 50rpx 40rpx;
+  border-left: 10rpx solid #333;
+  align-self: flex-start;
+  padding: 0 20rpx;
+  color: #666;
+}
+
+.options .switch-user {
+  align-self: flex-end;
+  margin: 0 40rpx 40rpx 0;
+  font-size: 0.8em;
+  color: #666;
+}
