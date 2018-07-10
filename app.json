@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/detail/detail",
     "pages/history/history",
+    "pages/user/user",
     "pages/logs/logs"
   ],
   "window": {
@@ -17,10 +18,16 @@
     "selectedColor": "#000",
     "list": [
       {
+        "pagePath": "pages/user/user",
+        "iconPath": "res/img/user.png",
+        "selectedIconPath": "res/img/user_selected.png",
+        "text": "信息"
+      },
+      {
         "pagePath": "pages/index/index",
         "iconPath": "res/img/book.png",
         "selectedIconPath": "res/img/book_selected.png",
-        "text": "最近" 
+        "text": "最近"
       },
       {
         "pagePath": "pages/history/history",
