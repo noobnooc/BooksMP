@@ -35,7 +35,7 @@ App({
         .getUser()
         .then(res => {
           this.globalData.user = res;
-          wx.setStorageSync('user', res);
+          wx.setStorageSync("user", res);
           this.onRefresh();
           resolve(res);
         })
@@ -60,15 +60,20 @@ App({
     user: {}
   },
 
-  setUsername(username) { 
+  setUsername(username) {
+    let prename = this.globalData.user.name;
     return new Promise((resolve, reject) => {
-      wx.setStorageSync('username', username);
       api.setUsername(username);
       this.fetchUser()
         .then(() => {
-          this.fetchData().then(resolve);
+          this.fetchData();
+          resolve();
         })
-        .catch(reject);
-    })
+        .catch(() => {
+          wx.setStorageSync("username", username);
+          api.setUsername(prename);
+          reject();
+        });
+    });
   }
 });
