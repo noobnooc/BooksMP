@@ -9,7 +9,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Hardo 的书单",
+    "navigationBarTitleText": "我的的书单",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },

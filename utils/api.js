@@ -1,14 +1,17 @@
 const cfg = require('../config.js');
-const userBooksUrl = `/book/user/${cfg.name}/collections`;
+const userBooksUrl = '/book/user/';
+const coll = '/collections';
 const bookUrl = '/book';
 const userUrl = '/user';
 
 module.exports = {
+  username: cfg.name,
+
   // 通过起始值和数量获取该用户的图书
   getBooks(start = 0, count = 10) {
     return new Promise((resolve, reject) => {
       wx.request({
-        url: `${cfg.baseUrl + userBooksUrl}?start=${start}&${count}`,
+        url: `${cfg.baseUrl + userBooksUrl + this.username + coll}?start=${start}&${count}`,
         header: {
           "Content-Type": "json"
         },
@@ -40,10 +43,10 @@ module.exports = {
     })
   },
 
-  getUser(name) {
+  getUser() {
     return new Promise((resolve, reject) => {
       wx.request({
-        url: `${cfg.baseUrl + userUrl}/${name}`,
+        url: `${cfg.baseUrl + userUrl}/${this.username}`,
         header: {
           'Content-Type': 'json'
         },
@@ -55,5 +58,9 @@ module.exports = {
         }
       })
     })
+  },
+
+  setUsername(name) {
+    this.username = name;
   }
 }

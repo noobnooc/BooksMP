@@ -24,7 +24,7 @@
             <text class='publisher'>{{item.book.publisher}}</text>
             <text class='pubdate'>{{item.book.pubdate}}</text>
           </view>
-          <template is='tags' data='{{tags: item.book.tags, userTags: item.tags}}' />
+          <template is='tags' data='{{tags: m.sliceTags(item.book.tags), userTags: item.tags}}' />
         </view>
       </view>
       <view class='comment' wx:if="{{item.comment || item.rating.value}}">
@@ -47,5 +47,9 @@
     var dateStr = date.split(' ')[0];
     var dateArr = dateStr.split('-');
     return dateArr[0] + '年' + dateArr[1] + '月' + dateArr[2] + '日';
+  }
+
+  module.exports.sliceTags = function(tags) {
+    return tags.slice ? tags.slice(0, 4) : [];
   }
 </wxs>

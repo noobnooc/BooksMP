@@ -1,23 +1,61 @@
-const api = require('utils/api.js')
+const api = require("utils/api.js");
 
 //app.js
 App({
+  // 更新数据后需要调用的回调函数列表
+  refreshListenerList: new Set(),
+
   onLaunch: function() {
     // 初始化数据
-    var books = wx.getStorageSync('books') || []
+    let username = wx.getStorageSync("username") || "hardo";
+    api.setUsername(username);
+    let user = wx.getStorageSync("user") || { name: "Hardo" };
+    this.globalData.user = user;
+    let books = wx.getStorageSync("books") || [];
     this.globalData.books = books;
+    this.fetchData();
+    this.fetchUser();
   },
   fetchData() {
     return new Promise((resolve, reject) => {
-      api.getBooks(0, 10)
-        .then((books) => {
+      api
+        .getBooks(0, 10)
+        .then(books => {
           this.globalData.books = books;
-          wx.setStorageSync('books', books);
+          wx.setStorageSync("books", books);
+          this.onData();
           resolve(books);
-        }).catch(res => reject(res));
-    })
+        })
+        .catch(reject);
+    });
+  },
+  fetchUser() {
+    return new Promise((resolve, reject) => {
+      api
+        .getUser()
+        .then(res => {
+          this.globalData.user = res;
+          this.onData();
+          resolve(res);
+        })
+        .catch(reject);
+    });
+  },
+  onData() {
+    for (let listener of this.refreshListenerList) {
+      if (typeof listener === "function") {
+        listener();
+      }
+    }
+  },
+  addOnRefreshListener(listener) {
+    this.refreshListenerList.add(listener);
+  },
+  removeOnRefreshListener(listener) {
+    this.refreshListenerList.delete(listener);
   },
   globalData: {
     books: [],
+    user: {}
   }
-})
+});
