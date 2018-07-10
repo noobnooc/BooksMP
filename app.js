@@ -66,11 +66,11 @@ App({
       api.setUsername(username);
       this.fetchUser()
         .then(() => {
+          wx.setStorageSync("username", username);
           this.fetchData();
           resolve();
         })
         .catch(() => {
-          wx.setStorageSync("username", username);
           api.setUsername(prename);
           reject();
         });
