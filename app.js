@@ -23,7 +23,7 @@ App({
         .then(books => {
           this.globalData.books = books;
           wx.setStorageSync("books", books);
-          this.onData();
+          this.onRefresh();
           resolve(books);
         })
         .catch(reject);
@@ -35,13 +35,14 @@ App({
         .getUser()
         .then(res => {
           this.globalData.user = res;
-          this.onData();
+          wx.setStorageSync('user', res);
+          this.onRefresh();
           resolve(res);
         })
         .catch(reject);
     });
   },
-  onData() {
+  onRefresh() {
     for (let listener of this.refreshListenerList) {
       if (typeof listener === "function") {
         listener();
@@ -57,5 +58,17 @@ App({
   globalData: {
     books: [],
     user: {}
+  },
+
+  setUsername(username) { 
+    return new Promise((resolve, reject) => {
+      wx.setStorageSync('username', username);
+      api.setUsername(username);
+      this.fetchUser()
+        .then(() => {
+          this.fetchData().then(resolve);
+        })
+        .catch(reject);
+    })
   }
 });

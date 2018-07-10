@@ -16,11 +16,12 @@ module.exports = {
           "Content-Type": "json"
         },
         success: res => {
+          if (res.statusCode !== 200) {
+            reject(new Error(res.data.errMsg))
+          }
           resolve(res.data.collections);
         },
-        fail: res => {
-          reject(res);
-        }
+        fail: reject
       })
     })
   },
@@ -34,11 +35,12 @@ module.exports = {
           "Content-Type": "json"
         },
         success: res => {
+          if (res.statusCode !== 200) {
+            reject(new Error(res.errMsg));
+          }
           resolve(res.data);
         },
-        fail: res => {
-          reject(res);
-        }
+        fail: reject
       })
     })
   },
@@ -51,11 +53,14 @@ module.exports = {
           'Content-Type': 'json'
         },
         success: res => {
+          if (res.statusCode === 404 && res.data.code === 1001) {
+            reject(new Error('用户名不存在！'));
+          } else if (res.statusCode !== 200) {
+            reject(new Error(res.errMsg));
+          } 
           resolve(res.data);
         },
-        fail: res => {
-          reject(res);
-        }
+        fail: reject
       })
     })
   },
