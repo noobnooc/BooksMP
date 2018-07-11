@@ -3,7 +3,7 @@
   <view class="userinfo">
     <image class="avatar" src="{{user.large_avatar}}" mode="aspectFit" />
     <view class="username">
-      <text class="name">{{user.name}}</text><text class="uid">{{user.uid}}</text>
+      <text class="name">{{user.name}}<text class="status" wx:if="{{user.is_banned}}">🈲</text></text><text class="uid">{{user.uid}}</text>
     </view>
     <view class="signature">
       <text>{{user.signature || '这家伙很懒，啥都没写。'}}</text>

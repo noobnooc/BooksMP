@@ -35,8 +35,14 @@
 }
 
 .user .username .name {
+  position: relative;
   font-size: 1.2em;
   font-weight: bold;
+}
+
+.user .name .status {
+  position: absolute;
+  right: -1.5em;
 }
 
 .user .username .uid {
